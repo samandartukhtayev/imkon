@@ -1,0 +1,1237 @@
+basePath: /v1
+definitions:
+  models.AcceptVacancyReq:
+    properties:
+      user_id:
+        type: integer
+      vacancy_id:
+        type: integer
+    type: object
+  models.AcceptVacancyRes:
+    properties:
+      business_info:
+        $ref: '#/definitions/models.BusinessResponse'
+      created_at:
+        type: string
+      id:
+        type: integer
+      user_info:
+        $ref: '#/definitions/models.UserResponse'
+    type: object
+  models.AcceptedVacanciesResponse:
+    properties:
+      accepted_vacancies:
+        items:
+          $ref: '#/definitions/models.AcceptVacancyRes'
+        type: array
+      count:
+        type: integer
+    type: object
+  models.BusinessResponse:
+    properties:
+      address:
+        type: string
+      createdAt:
+        type: string
+      email:
+        type: string
+      id:
+        type: integer
+      imageUrl:
+        type: string
+      info:
+        type: string
+      instagramAccount:
+        type: string
+      linkedInAccount:
+        type: string
+      name:
+        type: string
+      phoneNumber:
+        type: string
+      telegramAccount:
+        type: string
+      webSite:
+        type: string
+    type: object
+  models.Category:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  models.CourseResponse:
+    properties:
+      business:
+        $ref: '#/definitions/models.BusinessResponse'
+      category:
+        $ref: '#/definitions/models.Category'
+      course_price:
+        type: integer
+      created_at:
+        type: string
+      id:
+        type: integer
+      image_url:
+        type: string
+      info:
+        type: string
+      name:
+        type: string
+      sale_of:
+        type: integer
+    type: object
+  models.CreateBusinessReq:
+    properties:
+      address:
+        type: string
+      email:
+        type: string
+      info:
+        type: string
+      instagram_account:
+        type: string
+      linked_in_account:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      phone_number:
+        type: string
+      telegram_account:
+        type: string
+      web_site:
+        type: string
+    type: object
+  models.CreateCategoryReq:
+    properties:
+      name:
+        type: string
+    type: object
+  models.CreateCourseReq:
+    properties:
+      business_id:
+        type: integer
+      course_price:
+        type: integer
+      info:
+        type: string
+      name:
+        type: string
+      sale_of:
+        type: integer
+    type: object
+  models.CreateUserReq:
+    properties:
+      email:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      password:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  models.CreateVacancyReq:
+    properties:
+      address:
+        type: string
+      business_id:
+        type: integer
+      info:
+        type: string
+      job_type:
+        type: string
+      max_salary:
+        type: number
+      min_salary:
+        type: number
+      name:
+        type: string
+    type: object
+  models.ErrorResponse:
+    properties:
+      error:
+        type: string
+    type: object
+  models.GetAllBusinessesResp:
+    properties:
+      businesses:
+        items:
+          $ref: '#/definitions/models.BusinessResponse'
+        type: array
+      count:
+        type: integer
+    type: object
+  models.GetAllCoursesRes:
+    properties:
+      count:
+        type: integer
+      courses:
+        items:
+          $ref: '#/definitions/models.CourseResponse'
+        type: array
+    type: object
+  models.GetAllUsersResp:
+    properties:
+      count:
+        type: integer
+      users:
+        items:
+          $ref: '#/definitions/models.UserResponse'
+        type: array
+    type: object
+  models.GetAllVacanciesRes:
+    properties:
+      count:
+        type: integer
+      vacancies:
+        items:
+          $ref: '#/definitions/models.VacancyResponse'
+        type: array
+    type: object
+  models.ResponseOK:
+    properties:
+      message:
+        type: string
+    type: object
+  models.UpdateBusinessReq:
+    properties:
+      address:
+        type: string
+      info:
+        type: string
+      instagram_account:
+        type: string
+      linked_in_account:
+        type: string
+      name:
+        type: string
+      phone_number:
+        type: string
+      telegram_account:
+        type: string
+      web_site:
+        type: string
+    type: object
+  models.UpdateCourseReq:
+    properties:
+      course_price:
+        type: integer
+      info:
+        type: string
+      name:
+        type: string
+      sale_of:
+        type: integer
+    type: object
+  models.UpdateUserReq:
+    properties:
+      first_name:
+        type: string
+      last_name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  models.UpdateVacancyReq:
+    properties:
+      info:
+        type: string
+      job_type:
+        type: string
+      max_salary:
+        type: number
+      min_salary:
+        type: number
+      name:
+        type: string
+    type: object
+  models.UserResponse:
+    properties:
+      created_at:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: integer
+      image_url:
+        type: string
+      last_name:
+        type: string
+      phone_number:
+        type: string
+      portfolia_url:
+        type: string
+    type: object
+  models.VacancyResponse:
+    properties:
+      address:
+        type: string
+      business_info:
+        $ref: '#/definitions/models.BusinessResponse'
+      category_info:
+        $ref: '#/definitions/models.Category'
+      created_at:
+        type: string
+      id:
+        type: integer
+      image_url:
+        type: string
+      info:
+        type: string
+      job_type:
+        type: string
+      max_salary:
+        type: number
+      min_salary:
+        type: number
+      name:
+        type: string
+      views_count:
+        type: integer
+    type: object
+info:
+  contact: {}
+  description: This is a Imkon project api
+  title: Swagger for Imkon
+  version: "1.0"
+paths:
+  /accepted-vacancies:
+    post:
+      consumes:
+      - application/json
+      description: Create a accepted_vacancy
+      parameters:
+      - description: accepted_vacancy
+        in: body
+        name: accepted_vacancy
+        required: true
+        schema:
+          $ref: '#/definitions/models.AcceptVacancyReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.AcceptVacancyRes'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Create a accepted_vacancy
+      tags:
+      - accepted-vacancies
+  /accepted-vacancies-by-business/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get vacancy by business id
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.AcceptedVacanciesResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get vacancy by business id
+      tags:
+      - accepted-vacancies
+  /accepted-vacancies-by-id/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get vacancy by id
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.AcceptVacancyRes'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get vacancy by id
+      tags:
+      - accepted-vacancies
+  /accepted-vacancies-by-user/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get vacancy by user id
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.AcceptedVacanciesResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get vacancy by user id
+      tags:
+      - accepted-vacancies
+  /accepted-vacancy/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a accepted_vacancy
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Delete a accepted_vacancy
+      tags:
+      - accepted-vacancies
+  /businesses:
+    get:
+      consumes:
+      - application/json
+      description: Get all businesses
+      parameters:
+      - default: 10
+        in: query
+        name: limit
+        required: true
+        type: integer
+      - default: 1
+        in: query
+        name: page
+        required: true
+        type: integer
+      - in: query
+        name: search
+        type: string
+      - default: desc
+        enum:
+        - asc
+        - desc
+        in: query
+        name: sort_by_date
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.GetAllBusinessesResp'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get all businesses
+      tags:
+      - businesses
+    post:
+      consumes:
+      - application/json
+      description: Create a business
+      parameters:
+      - description: business
+        in: body
+        name: business
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateBusinessReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.BusinessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Create a business
+      tags:
+      - businesses
+  /businesses/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a business
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Delete a Business
+      tags:
+      - businesses
+    get:
+      consumes:
+      - application/json
+      description: Get business by id
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.BusinessResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get business by id
+      tags:
+      - businesses
+    put:
+      consumes:
+      - application/json
+      description: Update a business
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: business
+        in: body
+        name: business
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateBusinessReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.BusinessResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Update a business
+      tags:
+      - businesses
+  /businesses/image-upload/{id}:
+    post:
+      consumes:
+      - application/json
+      description: File image upload
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: File
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.BusinessResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: File image upload
+      tags:
+      - businesses
+  /categories:
+    post:
+      consumes:
+      - application/json
+      description: Create a category
+      parameters:
+      - description: category
+        in: body
+        name: category
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateCategoryReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Category'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Create a category
+      tags:
+      - categories
+  /courses:
+    get:
+      consumes:
+      - application/json
+      description: Get all courses
+      parameters:
+      - default: 10
+        in: query
+        name: limit
+        required: true
+        type: integer
+      - default: 1
+        in: query
+        name: page
+        required: true
+        type: integer
+      - in: query
+        name: search
+        type: string
+      - default: desc
+        enum:
+        - asc
+        - desc
+        in: query
+        name: sort_by_date
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.GetAllCoursesRes'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get all courses
+      tags:
+      - courses
+    post:
+      consumes:
+      - application/json
+      description: Create a course
+      parameters:
+      - description: course
+        in: body
+        name: course
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateCourseReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.CourseResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Create a course
+      tags:
+      - courses
+  /courses/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a course
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Delete a Course
+      tags:
+      - courses
+    get:
+      consumes:
+      - application/json
+      description: Get course by id
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CourseResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get course by id
+      tags:
+      - courses
+    put:
+      consumes:
+      - application/json
+      description: Update a course
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: course
+        in: body
+        name: course
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateCourseReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CourseResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Update a course
+      tags:
+      - courses
+  /courses/image-upload/{id}:
+    post:
+      consumes:
+      - application/json
+      description: File image upload
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: File
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CourseResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: File image upload
+      tags:
+      - courses
+  /users:
+    get:
+      consumes:
+      - application/json
+      description: Get all users
+      parameters:
+      - default: 10
+        in: query
+        name: limit
+        required: true
+        type: integer
+      - default: 1
+        in: query
+        name: page
+        required: true
+        type: integer
+      - in: query
+        name: search
+        type: string
+      - default: desc
+        enum:
+        - asc
+        - desc
+        in: query
+        name: sort_by_date
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.GetAllUsersResp'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get all users
+      tags:
+      - users
+    post:
+      consumes:
+      - application/json
+      description: Create a user
+      parameters:
+      - description: user
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateUserReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.UserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Create a user
+      tags:
+      - users
+  /users-accepted:
+    get:
+      consumes:
+      - application/json
+      description: Get all accepted users
+      parameters:
+      - default: 10
+        in: query
+        name: limit
+        required: true
+        type: integer
+      - default: 1
+        in: query
+        name: page
+        required: true
+        type: integer
+      - in: query
+        name: search
+        type: string
+      - default: desc
+        enum:
+        - asc
+        - desc
+        in: query
+        name: sort_by_date
+        type: string
+      - in: query
+        name: vacancy_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.GetAllUsersResp'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get all accepted users
+      tags:
+      - users
+  /users/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a user
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Delete a User
+      tags:
+      - users
+    get:
+      consumes:
+      - application/json
+      description: Get user by id
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.UserResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get user by id
+      tags:
+      - users
+    put:
+      consumes:
+      - application/json
+      description: Update a user
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: user
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateUserReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.UserResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Update a user
+      tags:
+      - users
+  /users/image-upload/{id}:
+    post:
+      consumes:
+      - application/json
+      description: File image upload
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: File
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseOK'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: File image upload
+      tags:
+      - users
+  /users/portfolia-upload/{id}:
+    post:
+      consumes:
+      - application/json
+      description: File portfolia upload
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: File
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseOK'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: File portfolia upload
+      tags:
+      - users
+  /vacancies:
+    get:
+      consumes:
+      - application/json
+      description: Get all vacancies
+      parameters:
+      - default: 10
+        in: query
+        name: limit
+        required: true
+        type: integer
+      - default: 1
+        in: query
+        name: page
+        required: true
+        type: integer
+      - in: query
+        name: search
+        type: string
+      - default: desc
+        enum:
+        - asc
+        - desc
+        in: query
+        name: sort_by_date
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.GetAllVacanciesRes'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get all vacancies
+      tags:
+      - vacancies
+    post:
+      consumes:
+      - application/json
+      description: Create a vacancy
+      parameters:
+      - description: vacancy
+        in: body
+        name: vacancy
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateVacancyReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.VacancyResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Create a vacancy
+      tags:
+      - vacancies
+  /vacancies/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a vacancy
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Delete a Vacancy
+      tags:
+      - vacancies
+    get:
+      consumes:
+      - application/json
+      description: Get vacancy by id
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.VacancyResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get vacancy by id
+      tags:
+      - vacancies
+    put:
+      consumes:
+      - application/json
+      description: Update a vacancy
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: vacancy
+        in: body
+        name: vacancy
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateVacancyReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.VacancyResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Update a vacancy
+      tags:
+      - vacancies
+  /vacancies/image-upload/{id}:
+    post:
+      consumes:
+      - application/json
+      description: File image upload
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: File
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.VacancyResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: File image upload
+      tags:
+      - vacancies
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
